@@ -47,10 +47,14 @@ function Teams() {
             {team.schedule && <p className="quiet">Schedule: {team.schedule}</p>}
             <div className="metric-pair">
               <span>{team.mascot}</span>
-              <strong>{team.maxAttendance || team.memberCount} members</strong>
+              {team.maxAttendance ? (
+                <strong>{team.maxAttendance} max attendees</strong>
+              ) : (
+                <strong>{team.memberCount} members</strong>
+              )}
             </div>
             {team.maxAttendance && <p className="quiet">Max attendance: {team.maxAttendance} people</p>}
-            {!team.maxAttendance && <p className="quiet">Weekly goal: {team.weeklyGoalMinutes} minutes</p>}
+            <p className="quiet">Weekly goal: {team.weeklyGoalMinutes} minutes</p>
           </article>
         ))}
       </div>
