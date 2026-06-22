@@ -1,5 +1,5 @@
 import express from 'express';
-import mongoose from 'mongoose';
+import { connectToDatabase, mongoUri } from './database';
 import {
   ActivityModel,
   LeaderboardEntryModel,
@@ -10,7 +10,6 @@ import {
 
 const app = express();
 const port = Number(process.env.PORT) || 8000;
-const mongoUri = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/octofit_db';
 const codespaceName = process.env.CODESPACE_NAME;
 const baseUrl = codespaceName
   ? `https://${codespaceName}-8000.app.github.dev`
@@ -72,8 +71,7 @@ app.use((error: unknown, _req: express.Request, res: express.Response, _next: ex
   res.status(500).json({ error: 'Internal server error' });
 });
 
-mongoose
-  .connect(mongoUri)
+connectToDatabase()
   .then(() => {
     app.listen(port, () => {
       console.log(`OctoFit backend listening on port ${port}`);
