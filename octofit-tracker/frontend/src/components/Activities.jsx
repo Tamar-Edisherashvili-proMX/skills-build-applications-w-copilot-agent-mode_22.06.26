@@ -1,6 +1,15 @@
 import { useEffect, useState } from 'react'
 import { fetchCollectionFromUrl } from '../api'
 
+const clubActivities = [
+  {
+    name: 'Manga Maniacs',
+    description: 'Explore the fantastic stories of the most interesting characters from Japanese Manga (graphic novels).',
+    schedule: 'Tuesdays at 7pm',
+    maxAttendance: 15,
+  },
+]
+
 function Activities() {
   const [activities, setActivities] = useState([])
   const [error, setError] = useState('')
@@ -38,6 +47,18 @@ function Activities() {
         <code>{endpoint}</code>
       </div>
       {error && <div className="alert alert-warning">Unable to load activities: {error}</div>}
+      <div className="resource-grid mb-4">
+        {clubActivities.map((clubActivity) => (
+          <article className="resource-card" key={clubActivity.name}>
+            <h2>{clubActivity.name}</h2>
+            <p>{clubActivity.description}</p>
+            <div className="meta-row">
+              <span>{clubActivity.schedule}</span>
+              <span>Max attendance: {clubActivity.maxAttendance} people</span>
+            </div>
+          </article>
+        ))}
+      </div>
       <div className="table-responsive">
         <table className="table align-middle">
           <thead>
