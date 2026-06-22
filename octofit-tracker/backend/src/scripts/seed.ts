@@ -50,8 +50,8 @@ const teams = [
     name: 'Manga Maniacs',
     mascot: 'Inkling',
     city: 'Mergington',
-    memberCount: 15,
-    weeklyGoalMinutes: 0,
+    memberCount: 12,
+    weeklyGoalMinutes: 900,
     description:
       'Explore the fantastic stories of the most interesting characters from Japanese Manga (graphic novels).',
     schedule: 'Tuesdays at 7pm',
