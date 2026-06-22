@@ -53,7 +53,6 @@ function Teams() {
                 <strong>{team.memberCount} members</strong>
               )}
             </div>
-            {team.maxAttendance && <p className="quiet">Max attendance: {team.maxAttendance} people</p>}
             <p className="quiet">Weekly goal: {team.weeklyGoalMinutes} minutes</p>
           </article>
         ))}
