@@ -1,16 +1,17 @@
 import { useEffect, useState } from 'react'
-import { apiBaseUrl, fetchCollection } from '../api'
+import { fetchCollectionFromUrl } from '../api'
 
 function Leaderboard() {
   const [leaderboard, setLeaderboard] = useState([])
   const [error, setError] = useState('')
-  const endpointPath = '/api/leaderboard/'
-  const endpoint = `${apiBaseUrl}${endpointPath.replace('/api', '')}`
+  const endpoint = import.meta.env.VITE_CODESPACE_NAME
+    ? `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/leaderboard/`
+    : 'http://localhost:8000/api/leaderboard/'
 
   useEffect(() => {
     let active = true
 
-    fetchCollection('leaderboard')
+    fetchCollectionFromUrl(endpoint, 'leaderboard')
       .then((data) => {
         if (active) {
           setLeaderboard(data)
@@ -25,7 +26,7 @@ function Leaderboard() {
     return () => {
       active = false
     }
-  }, [])
+  }, [endpoint])
 
   return (
     <section className="view-panel">

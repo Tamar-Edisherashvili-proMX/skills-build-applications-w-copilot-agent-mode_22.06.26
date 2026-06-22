@@ -1,16 +1,17 @@
 import { useEffect, useState } from 'react'
-import { apiBaseUrl, fetchCollection } from '../api'
+import { fetchCollectionFromUrl } from '../api'
 
 function Users() {
   const [users, setUsers] = useState([])
   const [error, setError] = useState('')
-  const endpointPath = '/api/users/'
-  const endpoint = `${apiBaseUrl}${endpointPath.replace('/api', '')}`
+  const endpoint = import.meta.env.VITE_CODESPACE_NAME
+    ? `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/users/`
+    : 'http://localhost:8000/api/users/'
 
   useEffect(() => {
     let active = true
 
-    fetchCollection('users')
+    fetchCollectionFromUrl(endpoint, 'users')
       .then((data) => {
         if (active) {
           setUsers(data)
@@ -25,7 +26,7 @@ function Users() {
     return () => {
       active = false
     }
-  }, [])
+  }, [endpoint])
 
   return (
     <section className="view-panel">

@@ -1,16 +1,17 @@
 import { useEffect, useState } from 'react'
-import { apiBaseUrl, fetchCollection } from '../api'
+import { fetchCollectionFromUrl } from '../api'
 
 function Activities() {
   const [activities, setActivities] = useState([])
   const [error, setError] = useState('')
-  const endpointPath = '/api/activities/'
-  const endpoint = `${apiBaseUrl}${endpointPath.replace('/api', '')}`
+  const endpoint = import.meta.env.VITE_CODESPACE_NAME
+    ? `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/activities/`
+    : 'http://localhost:8000/api/activities/'
 
   useEffect(() => {
     let active = true
 
-    fetchCollection('activities')
+    fetchCollectionFromUrl(endpoint, 'activities')
       .then((data) => {
         if (active) {
           setActivities(data)
@@ -25,7 +26,7 @@ function Activities() {
     return () => {
       active = false
     }
-  }, [])
+  }, [endpoint])
 
   return (
     <section className="view-panel">
