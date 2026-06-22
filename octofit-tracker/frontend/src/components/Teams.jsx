@@ -43,11 +43,14 @@ function Teams() {
           <article className="resource-card" key={team._id || team.name}>
             <h2>{team.name}</h2>
             <p>{team.city}</p>
+            {team.description && <p>{team.description}</p>}
+            {team.schedule && <p className="quiet">Schedule: {team.schedule}</p>}
             <div className="metric-pair">
               <span>{team.mascot}</span>
-              <strong>{team.memberCount} members</strong>
+              <strong>{team.maxAttendance || team.memberCount} members</strong>
             </div>
-            <p className="quiet">Weekly goal: {team.weeklyGoalMinutes} minutes</p>
+            {team.maxAttendance && <p className="quiet">Max attendance: {team.maxAttendance} people</p>}
+            {!team.maxAttendance && <p className="quiet">Weekly goal: {team.weeklyGoalMinutes} minutes</p>}
           </article>
         ))}
       </div>

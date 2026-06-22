@@ -15,6 +15,9 @@ const teamSchema = new mongoose_1.Schema({
     city: { type: String, required: true },
     memberCount: { type: Number, required: true },
     weeklyGoalMinutes: { type: Number, required: true },
+    description: { type: String },
+    schedule: { type: String },
+    maxAttendance: { type: Number },
 }, { timestamps: true });
 const activitySchema = new mongoose_1.Schema({
     userEmail: { type: String, required: true },

@@ -14,6 +14,9 @@ export interface ITeam {
   city: string;
   memberCount: number;
   weeklyGoalMinutes: number;
+  description?: string;
+  schedule?: string;
+  maxAttendance?: number;
 }
 
 export interface IActivity {
@@ -59,6 +62,9 @@ const teamSchema = new Schema<ITeam>(
     city: { type: String, required: true },
     memberCount: { type: Number, required: true },
     weeklyGoalMinutes: { type: Number, required: true },
+    description: { type: String },
+    schedule: { type: String },
+    maxAttendance: { type: Number },
   },
   { timestamps: true },
 );
