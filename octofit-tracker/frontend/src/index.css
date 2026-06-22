@@ -1,0 +1,39 @@
+:root {
+  color: #10251f;
+  background: #f7f4ea;
+  font-family: Avenir Next, Avenir, Trebuchet MS, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw, 4.5rem);
+  line-height: 0.95;
+  margin-bottom: 0;
+}
+
+h2 {
+  font-size: 1.25rem;
+  margin-bottom: 0;
+}
+
+code {
+  background: rgba(16, 37, 31, 0.08);
+  border-radius: 6px;
+  color: #2d4c43;
+  display: inline-block;
+  font-size: 0.82rem;
+  padding: 8px 10px;
+}
