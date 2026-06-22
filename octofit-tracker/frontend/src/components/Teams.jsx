@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
-import { fetchCollection, getApiUrl } from '../api'
+import { apiBaseUrl, fetchCollection } from '../api'
 
 function Teams() {
   const [teams, setTeams] = useState([])
   const [error, setError] = useState('')
-  const endpoint = getApiUrl('teams')
+  const endpointPath = '/api/teams/'
+  const endpoint = `${apiBaseUrl}${endpointPath.replace('/api', '')}`
 
   useEffect(() => {
     let active = true

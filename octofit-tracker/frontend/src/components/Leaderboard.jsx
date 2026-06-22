@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
-import { fetchCollection, getApiUrl } from '../api'
+import { apiBaseUrl, fetchCollection } from '../api'
 
 function Leaderboard() {
   const [leaderboard, setLeaderboard] = useState([])
   const [error, setError] = useState('')
-  const endpoint = getApiUrl('leaderboard')
+  const endpointPath = '/api/leaderboard/'
+  const endpoint = `${apiBaseUrl}${endpointPath.replace('/api', '')}`
 
   useEffect(() => {
     let active = true

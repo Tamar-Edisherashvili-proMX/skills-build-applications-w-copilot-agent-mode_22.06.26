@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
-import { fetchCollection, getApiUrl } from '../api'
+import { apiBaseUrl, fetchCollection } from '../api'
 
 function Users() {
   const [users, setUsers] = useState([])
   const [error, setError] = useState('')
-  const endpoint = getApiUrl('users')
+  const endpointPath = '/api/users/'
+  const endpoint = `${apiBaseUrl}${endpointPath.replace('/api', '')}`
 
   useEffect(() => {
     let active = true

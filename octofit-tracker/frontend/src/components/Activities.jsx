@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
-import { fetchCollection, getApiUrl } from '../api'
+import { apiBaseUrl, fetchCollection } from '../api'
 
 function Activities() {
   const [activities, setActivities] = useState([])
   const [error, setError] = useState('')
-  const endpoint = getApiUrl('activities')
+  const endpointPath = '/api/activities/'
+  const endpoint = `${apiBaseUrl}${endpointPath.replace('/api', '')}`
 
   useEffect(() => {
     let active = true
