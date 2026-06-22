@@ -40,6 +40,16 @@ const teams = [
         memberCount: 9,
         weeklyGoalMinutes: 1350,
     },
+    {
+        name: 'Manga Maniacs',
+        mascot: 'Inkling',
+        city: 'Mergington',
+        memberCount: 12,
+        weeklyGoalMinutes: 900,
+        description: 'Explore the fantastic stories of the most interesting characters from Japanese Manga (graphic novels).',
+        schedule: 'Tuesdays at 7pm',
+        maxAttendance: 15,
+    },
 ];
 const activities = [
     {
