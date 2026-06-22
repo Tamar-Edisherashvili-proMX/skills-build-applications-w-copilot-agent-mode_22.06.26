@@ -3,6 +3,7 @@ import { fetchCollectionFromUrl } from '../api'
 
 const clubActivities = [
   {
+    id: 'manga-maniacs',
     name: 'Manga Maniacs',
     description: 'Explore the fantastic stories of the most interesting characters from Japanese Manga (graphic novels).',
     schedule: 'Tuesdays at 7pm',
@@ -49,7 +50,7 @@ function Activities() {
       {error && <div className="alert alert-warning">Unable to load activities: {error}</div>}
       <div className="resource-grid mb-4">
         {clubActivities.map((clubActivity) => (
-          <article className="resource-card" key={clubActivity.name}>
+          <article className="resource-card" key={clubActivity.id}>
             <h2>{clubActivity.name}</h2>
             <p>{clubActivity.description}</p>
             <div className="meta-row">
