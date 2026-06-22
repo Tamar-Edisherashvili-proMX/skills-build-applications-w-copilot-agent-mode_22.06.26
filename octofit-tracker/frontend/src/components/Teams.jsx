@@ -48,7 +48,9 @@ function Teams() {
             <div className="metric-pair">
               <span>{team.mascot}</span>
               {team.maxAttendance ? (
-                <strong>{team.maxAttendance} max attendees</strong>
+                <strong>
+                  {team.memberCount} members / {team.maxAttendance} max attendees
+                </strong>
               ) : (
                 <strong>{team.memberCount} members</strong>
               )}
