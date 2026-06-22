@@ -1,4 +1,4 @@
-import { connectToDatabase, disconnectFromDatabase } from '../database';
+import { connectToDatabase, disconnectFromDatabase } from '../config/database';
 import {
   ActivityModel,
   LeaderboardEntryModel,

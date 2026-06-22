@@ -1,5 +1,5 @@
 import express from 'express';
-import { connectToDatabase, mongoUri } from './database';
+import { connectToDatabase, mongoUri } from './config/database';
 import {
   ActivityModel,
   LeaderboardEntryModel,
